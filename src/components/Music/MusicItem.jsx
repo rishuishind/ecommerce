@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import Store from "../Contexts/Store";
 
 
 
 const MusicItem = () => {
+    const ctx = useContext(Store);
     const productsArr = [
 
         {
@@ -48,15 +51,15 @@ const MusicItem = () => {
     return (
         <div>
             <h3 className=' font-serif text-center text-3xl'>Music</h3>
-            <ul className='md:flex text-center justify-center'>
+            <ul className='md:grid grid-cols-2 w-96 mx-auto gap-6'>
                 {productsArr.map(item => {
                     return (
-                        <div className="mr-3 mt-4 overflow-hidden">
+                        <div>
                             {item.title}
-                            <img className=' mt-3 mb-3 hover:scale-110  transform transition duration-500' src={item.imageUrl} alt="img" />
-                            <div className='flex justify-between'>
+                            <img className=' rounded-lg hover:scale-110  transform transition duration-500' src={item.imageUrl} alt="img" />
+                            <div className='flex justify-start gap-10'>
                                 Rs.{item.price}
-                                <button className=' bg-blue-400 text-white font-bold rounded mr-2 mt-1 p-1'>Add to cart</button>
+                                <button onClick={ctx.addtocart} className=' bg-blue-400 text-white font-bold rounded mr-2 mt-1 p-1'>Add to cart</button>
                             </div>
                         </div>
                     )

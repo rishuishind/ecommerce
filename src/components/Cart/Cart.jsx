@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import Store from '../Contexts/Store';
 
 const Cart = () => {
     const [clicked, setClicked] = useState(false);
@@ -42,28 +43,29 @@ const Cart = () => {
         }
 
     ]
+    const ctx = useContext(Store);
     return (
         <div>
             {!clicked && <div onClick={() => setClicked(!clicked)} className='flex bg-red-400 rounded-md p-3'>
-                <AiOutlineShoppingCart className='text-2xl' />:0
+                <AiOutlineShoppingCart className='text-2xl' />{ctx.totalItem}
             </div>}
             {clicked &&
-                <div className={`bg-blue-950 m-0 fixed top-5 max-w-[900px] p-20 h-[95%] min-h-[50vh] ${clicked ? 'right-[0]' : 'right-[-100%]'}`}>
+                <div className={`bg-blue-950 m-0 fixed z-1 top-5 max-w-[900px] p-20 h-[95%] min-h-[50vh] ${clicked ? 'right-[0]' : 'right-[-100%]'}`}>
                     <div className='flex justify-between gap-10'>
-                        <p>Cart</p>
+                        <p className='text-3xl'>Cart</p>
                         <p onClick={() => setClicked(!clicked)}>Close X</p>
                     </div>
                     <div>
-                        <ul>
+                        <ul className='grid grid-cols-3'>
                             {cartElements.map(item =>
-                                <div className='flex flex-col justify-between align-middle'>
+                                <>
                                     <div>
-                                        Item:
+                                        <span className=' font-bold text-2xl'>Item:</span>
                                         <img className=' w-10 h-10 rounded-lg' src={item.imageUrl} alt="img" />
                                         {item.title}
                                     </div>
                                     <div>
-                                        Price:
+                                        <span className='text-2xl font-bold'>Price:</span>
                                         {item.price}
                                     </div>
                                     <div>
@@ -71,7 +73,7 @@ const Cart = () => {
                                         {item.quantity}
                                         <button className=' bg-red-600 text-white rounded-md p-2 ml-2'>Remove Item</button>
                                     </div>
-                                </div>
+                                </>
                             )}
                         </ul>
                     </div>
