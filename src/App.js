@@ -1,11 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import StoreProvider from "./components/Contexts/StoreProvider";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import MusicItem from "./components/Music/MusicItem";
-import Navibar from "./components/Navbar/Navbar";
 import About from "./pages/About";
 import Root from "./pages/Root";
+import Home from "./pages/Home";
 
 function App() {
 
@@ -22,6 +19,10 @@ function App() {
           path: '/about',
           element: <About />
         },
+        {
+          path: '/home',
+          element: <Home />
+        }
       ],
     },
   ]);
