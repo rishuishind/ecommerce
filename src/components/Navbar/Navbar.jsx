@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Cart from "../Cart/Cart";
 
 
@@ -8,9 +9,9 @@ const Navibar = () => {
                 <div>
                 </div>
                 <div className='flex gap-6 mt-3'>
-                    <li className='hover:cursor-pointer'>Home</li>
-                    <li className='hover:cursor-pointer'>Store</li>
-                    <li className='hover:cursor-pointer'>About</li>
+                    <li className='hover:cursor-pointer active:underline'> <NavLink to='/'>Home</NavLink></li>
+                    <li className='hover:cursor-pointer'><NavLink>Store</NavLink></li>
+                    <li className='hover:cursor-pointer'><NavLink to='/about'>About</NavLink></li>
                 </div>
                 <div className='mr-8 mt-3 hover:cursor-pointer'>
                     <Cart />
