@@ -3,6 +3,7 @@ import MusicItem from "./components/Music/MusicItem";
 import About from "./pages/About";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 
 function App() {
 
@@ -22,6 +23,10 @@ function App() {
         {
           path: '/home',
           element: <Home />
+        },
+        {
+          path: '/contact',
+          element: <Contact />
         }
       ],
     },

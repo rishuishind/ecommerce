@@ -12,6 +12,7 @@ const Navibar = () => {
                     <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/home'>Home</NavLink></li>
                     <li className='hover:cursor-pointer'> <NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/'>Store</NavLink></li>
                     <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/about'>About</NavLink></li>
+                    <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/contact'>Contact Us</NavLink></li>
                 </div>
                 <div className='mr-8 mt-3 hover:cursor-pointer'>
                     <Cart />
