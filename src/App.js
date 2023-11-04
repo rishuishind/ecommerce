@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import ProductDetails from "./pages/ProductsDetails";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       element: <Root />,
       children: [
         {
-          path: '/',
+          path: '/store',
           element: <MusicItem />
         },
         {
@@ -27,6 +28,10 @@ function App() {
         {
           path: '/contact',
           element: <Contact />
+        },
+        {
+          path: '/store/:productTitle',
+          element: <ProductDetails />
         }
       ],
     },

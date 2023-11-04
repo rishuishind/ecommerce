@@ -10,7 +10,7 @@ const Navibar = () => {
                 </div>
                 <div className='flex gap-6 mt-3'>
                     <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/home'>Home</NavLink></li>
-                    <li className='hover:cursor-pointer'> <NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/'>Store</NavLink></li>
+                    <li className='hover:cursor-pointer'> <NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/store'>Store</NavLink></li>
                     <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/about'>About</NavLink></li>
                     <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/contact'>Contact Us</NavLink></li>
                 </div>
