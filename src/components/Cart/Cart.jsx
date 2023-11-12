@@ -4,45 +4,6 @@ import Store from '../Contexts/Store';
 
 const Cart = () => {
     const [clicked, setClicked] = useState(false);
-    const cartElements = [
-
-        {
-
-            title: 'Colors',
-
-            price: 100,
-
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-
-            quantity: 2,
-
-        },
-
-        {
-
-            title: 'Black and white Colors',
-
-            price: 50,
-
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-
-            quantity: 3,
-
-        },
-
-        {
-
-            title: 'Yellow and Black Colors',
-
-            price: 70,
-
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-
-            quantity: 1,
-
-        }
-
-    ]
     const ctx = useContext(Store);
     return (
         <div>
@@ -57,7 +18,7 @@ const Cart = () => {
                     </div>
                     <div>
                         <ul className='grid grid-cols-3'>
-                            {cartElements.map(item =>
+                            {ctx.cartItems.map(item =>
                                 <>
                                     <div>
                                         <span className=' font-bold text-2xl'>Item:</span>
@@ -71,7 +32,7 @@ const Cart = () => {
                                     <div>
                                         Quantity:
                                         {item.quantity}
-                                        <button className=' bg-red-600 text-white rounded-md p-2 ml-2'>Remove Item</button>
+                                        <button onClick={() => ctx.removeItem(item.title, item.quantity)} className=' bg-red-600 text-white rounded-md p-2 ml-2'>Remove Item</button>
                                     </div>
                                 </>
                             )}
