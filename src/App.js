@@ -5,6 +5,7 @@ import Root from "./pages/Root";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import ProductDetails from "./pages/ProductsDetails";
+import Login from "./pages/Login";
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
         {
           path: '/contact',
           element: <Contact />
+        },
+        {
+          path: '/login',
+          element: <Login />
         },
         {
           path: '/store/:productTitle',
