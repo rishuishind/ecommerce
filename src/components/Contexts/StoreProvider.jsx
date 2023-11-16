@@ -3,9 +3,11 @@ import Store from "./Store"
 
 const StoreProvider = (props) => {
 
+    const initialToken = localStorage.getItem('idToken');
+
     const [totalItems, setTotalItems] = useState(0);
     const [cartItems, setCartItems] = useState([]);
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState(initialToken);
 
     const isLoggedIn = !!token;
 
@@ -32,6 +34,11 @@ const StoreProvider = (props) => {
         }
     }
 
+    const handleLogout = () => {
+        setToken(null);
+        localStorage.clear();
+    }
+
     const ItemRemover = (title, quantity) => {
         const updatedList = cartItems.filter(items => {
             return (items.title !== title);
@@ -49,7 +56,8 @@ const StoreProvider = (props) => {
         totalPrice: 500,
         login: handleToken,
         addtocart: addtocart,
-        removeItem: ItemRemover
+        removeItem: ItemRemover,
+        logout: handleLogout
     }
 
 

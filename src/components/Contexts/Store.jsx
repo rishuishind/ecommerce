@@ -8,5 +8,6 @@ const Store = createContext({
     login: (token) => { },
     addtocart: (title) => { },
     removeItem: (title) => { },
+    logout: () => { },
 })
 export default Store;

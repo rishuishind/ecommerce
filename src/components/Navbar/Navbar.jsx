@@ -24,6 +24,7 @@ const Navibar = () => {
 
                     {!ctx.islogin && <li className='hover:cursor-pointer'><NavLink className={({ isActive }) => isActive ? 'underline text-red-400' : undefined} to='/login'>Login</NavLink></li>}
 
+                    {ctx.islogin && <button onClick={ctx.logout}>Logout</button>}
                 </div>
                 <div className='mr-8 mt-3 hover:cursor-pointer'>
                     <Cart />

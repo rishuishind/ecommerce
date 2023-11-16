@@ -22,6 +22,8 @@ const Login = () => {
     const handleSubmit = event => {
         event.preventDefault();
 
+        localStorage.setItem('email', emailRef.current.value);
+
         if (isLogin) {
             fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD8ycB6q6pys2MMvD6gP4F308TdRu3RshI', {
                 method: 'POST',
