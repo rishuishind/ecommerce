@@ -5,10 +5,15 @@ import Store from '../Contexts/Store';
 const Cart = () => {
     const [clicked, setClicked] = useState(false);
     const ctx = useContext(Store);
+
+    const handleCartClick = () => {
+        ctx.addedCart();
+    }
+
     return (
         <div>
             {!clicked && <div onClick={() => setClicked(!clicked)} className='flex bg-red-400 rounded-md p-3'>
-                <AiOutlineShoppingCart className='text-2xl' />{ctx.totalItem}
+                <AiOutlineShoppingCart onClick={handleCartClick} className='text-2xl' />{localStorage.getItem('quantity')}
             </div>}
             {clicked &&
                 <div className={`bg-blue-950 m-0 fixed z-1 top-5 max-w-[900px] p-20 h-[95%] min-h-[50vh] ${clicked ? 'right-[0]' : 'right-[-100%]'}`}>
@@ -32,7 +37,7 @@ const Cart = () => {
                                     <div>
                                         Quantity:
                                         {item.quantity}
-                                        <button onClick={() => ctx.removeItem(item.title, item.quantity)} className=' bg-red-600 text-white rounded-md p-2 ml-2'>Remove Item</button>
+                                        <button onClick={() => ctx.removeItem(item.title, item.quantity, item._id)} className=' bg-red-600 text-white rounded-md p-2 ml-2'>Remove Item</button>
                                     </div>
                                 </>
                             )}

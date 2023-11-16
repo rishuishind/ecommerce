@@ -54,29 +54,6 @@ const MusicItem = () => {
 
     const handleCart = (item) => {
         ctx.addtocart(item);
-
-        const email = localStorage.getItem('email');
-        const res_1 = email.split('@')[0];
-        const res_2 = email.split('@')[1];
-        const res_3 = res_2.split('.')[0];
-        const res_4 = res_2.split('.')[1];
-        const final = res_1 + res_3 + res_4;
-        console.log('result is', final);
-
-        fetch(`https://crudcrud.com/api/545d3faa4fc0467bab002ab2a586ef9e/cart${final}`, {
-            method: 'POST',
-            body: JSON.stringify(item),
-            headers: { 'Content-Type': 'application/json' }
-        }).then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Authentication Failed');
-            }
-        }).then((data) => {
-            console.log('success');
-            console.log(data);
-        }).catch(err => alert(err));
     }
 
     return (

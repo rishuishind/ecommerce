@@ -6,8 +6,9 @@ const Store = createContext({
     totalItem: 0,
     totalPrice: 0,
     login: (token) => { },
-    addtocart: (title) => { },
+    addtocart: (music) => { },
     removeItem: (title) => { },
     logout: () => { },
+    addedCart: () => { },
 })
 export default Store;

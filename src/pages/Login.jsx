@@ -75,21 +75,24 @@ const Login = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" ref={emailRef} />
+            <form className=' mt-4 p-4 w-full' onSubmit={handleSubmit}>
+                <div className='flex flex-col items-center border-b-2 w-[50%] ml-96 shadow-md '>
+                    <div>
+                        <label className=' font-bold' htmlFor="email">Email:</label>
+                        <input className='rounded bg-slate-100 ml-4 mb-2' type="email" ref={emailRef} />
+                    </div>
+                    <div>
+                        <label className=' font-bold' htmlFor="password">Password:</label>
+                        <input className='rounded bg-slate-100 ml-4 mb-2' type="password" ref={passRef} />
+                    </div>
+                    <div className='font-bold hover:cursor-pointer' onClick={handleLogin}>
+                        {isLogin ? 'Create an account' : 'Login with existing account'}
+                    </div>
+                    <div>
+                        <button className=' bg-green-400 text-black rounded-md p-3 mb-4 mt-4'>{isLogin ? 'Login' : 'Signup'}</button>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" ref={passRef} />
-                </div>
-                <div onClick={handleLogin}>
-                    {isLogin ? 'Create an account' : 'Login with existing account'}
-                </div>
-                <div>
-                    <button>{isLogin ? 'Login' : 'Signup'}</button>
-                </div>
+
             </form>
         </div>
     )
