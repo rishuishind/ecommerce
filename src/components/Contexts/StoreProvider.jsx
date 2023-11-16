@@ -5,6 +5,13 @@ const StoreProvider = (props) => {
 
     const [totalItems, setTotalItems] = useState(0);
     const [cartItems, setCartItems] = useState([]);
+    const [token, setToken] = useState(null);
+
+    const isLoggedIn = !!token;
+
+    const handleToken = (token) => {
+        setToken(token);
+    }
 
     const addtocart = (music) => {
         setTotalItems(prev => (prev + 1));
@@ -36,9 +43,11 @@ const StoreProvider = (props) => {
     }
 
     const storeVal = {
+        islogin: isLoggedIn,
         cartItems: cartItems,
         totalItem: totalItems,
         totalPrice: 500,
+        login: handleToken,
         addtocart: addtocart,
         removeItem: ItemRemover
     }

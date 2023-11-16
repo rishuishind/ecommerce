@@ -1,9 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Store from '../components/Contexts/Store';
 
 const Login = () => {
 
     const [isLogin, setIsLogin] = useState(true);
+
+    const ctx = useContext(Store);
 
     const emailRef = useRef();
     const passRef = useRef();
@@ -37,6 +40,7 @@ const Login = () => {
             }).then((data) => {
                 console.log('success');
                 localStorage.setItem('idToken', data.idToken);
+                ctx.login(data.idToken);
                 navigate('/store');
             }).catch((err) => {
                 alert(err);
@@ -59,6 +63,7 @@ const Login = () => {
             }).then((data) => {
                 console.log('success');
                 localStorage.setItem('idToken', data.idToken);
+                ctx.login(data.idToken);
                 navigate('/store');
             }).catch((err) => {
                 alert(err);
